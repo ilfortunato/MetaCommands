@@ -32,14 +32,17 @@ namespace Commander
             services.AddDbContext<CommanderContext>(opt => opt.UseMySql
                 (Configuration.GetConnectionString("CommanderConnection")));
 
-            services.AddControllers().AddNewtonsoftJson(s => {
+            services
+                .AddControllers()
+                .AddNewtonsoftJson(s => {
                 s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             
-            // This service register use the hard-coded mock repo
+            // This service registry use the hard-coded mock repo
             //services.AddScoped<ICommanderRepo, MockCommanderRepo>();
+
             services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
         }
 

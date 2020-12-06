@@ -11,18 +11,19 @@ namespace Commander.Controllers
     //api/commands
     [Route("api/commands")]
     [ApiController]
-    public class CommndsController : ControllerBase
+    public class CommandsController : ControllerBase
     {
         private readonly ICommanderRepo _repository;
         private readonly IMapper _mapper;
 
-        public CommndsController(ICommanderRepo repository, IMapper mapper)
+        //DI using class constructor
+        public CommandsController(ICommanderRepo repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
  
-        // GET api/commands/
+        //GET api/commands/
         [HttpGet]
         public ActionResult<IEnumerable<CommandReadDto>> GetAllCommands()
         {
@@ -30,7 +31,7 @@ namespace Commander.Controllers
             return Ok(_mapper.Map<IEnumerable<CommandReadDto>>(commandItems));
         }       
 
-        // GET api/commands/{id}
+        //GET api/commands/{id}
         [HttpGet("{id}", Name="GetCommandById")]
         public ActionResult<CommandReadDto> GetCommandById(int id)
         {
@@ -43,7 +44,7 @@ namespace Commander.Controllers
             return NotFound();
         }
 
-        //POST api/commands
+        //POST api/commands/
         [HttpPost]
         public ActionResult<CommandReadDto> CreateCommand(CommandCreateDto commandCreateDto)
         {
