@@ -18,5 +18,6 @@ Sobre:
 - Foram aplicados conhecimentos como:
   - Repository Pattern 
   - DTO's
+  - Dependency injection (DI)
   - Arquitetura REST
   - Fake repository (hard coded).
