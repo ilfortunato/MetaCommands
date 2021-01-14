@@ -41,5 +41,10 @@ namespace Commander.Data
         {
             throw new System.NotImplementedException();
         }
+
+        IEnumerable<Command> ICommanderRepo.GetCommandByPlatform(string platform)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

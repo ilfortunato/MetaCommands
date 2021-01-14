@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 
 namespace Commander
@@ -44,6 +45,13 @@ namespace Commander
             //services.AddScoped<ICommanderRepo, MockCommanderRepo>();
 
             services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CommanderAPI", Version = "v1" });
+            });
+
+
         }
 
         
@@ -63,6 +71,15 @@ namespace Commander
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c => 
+            {    
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CommanderAPI v1");
+
+                
             });
         }
     }

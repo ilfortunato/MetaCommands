@@ -44,6 +44,11 @@ namespace Commander.Data
             return _context.Commands.FirstOrDefault(p => p.Id == id);
         }
 
+        public IEnumerable<Command> GetCommandByPlatform(string platform)
+        {
+            return _context.Commands.Where(p => p.Platform == platform);
+        }
+
         public bool SaveChanges()
         {
             return (_context.SaveChanges() >= 0);
@@ -53,5 +58,6 @@ namespace Commander.Data
         {
             // Nothing
         }
+
     }
 }

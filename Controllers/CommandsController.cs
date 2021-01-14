@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
 using Commander.Data;
 using Commander.Dtos;
@@ -32,13 +33,26 @@ namespace Commander.Controllers
         }       
 
         //GET api/commands/{id}
-        [HttpGet("{id}", Name="GetCommandById")]
+        [HttpGet("{id:int}", Name="GetCommandById")]
         public ActionResult<CommandReadDto> GetCommandById(int id)
         {
             var commandItem = _repository.GetCommandById(id);
             if(commandItem != null)
             {
                 return Ok(_mapper.Map<CommandReadDto>(commandItem));
+            }
+
+            return NotFound();
+        }
+
+        //GET api/commands/{platform}
+        [HttpGet("{platform}", Name="GetCommandByPlatform")]
+        public ActionResult<IEnumerable<Command>> GetCommandByPlatform(string platform)
+        {
+            var commandItem = _repository.GetCommandByPlatform(platform);
+            if(commandItem != null)
+            {
+                return Ok(_mapper.Map<IEnumerable<CommandReadDto>>(commandItem));
             }
 
             return NotFound();
