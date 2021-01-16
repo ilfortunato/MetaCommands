@@ -30,8 +30,8 @@ namespace Commander
         
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CommanderContext>(opt => opt.UseMySql
-                (Configuration.GetConnectionString("CommanderConnection")));
+            string mySqlConnectionStr = Configuration.GetConnectionString("CommanderConnection");  
+            services.AddDbContextPool<CommanderContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
 
             services
                 .AddControllers()
