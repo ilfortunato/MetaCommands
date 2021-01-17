@@ -1,19 +1,19 @@
 <h1 align="center">
-    <a> 💻 MetaCommands </a>
+    <a> MetaCommands </a>
 </h1>
-<p align="center"> Simples API que retorna os comandos que estão no DB </p>
+<p align="center"> API que retorna os comandos que estão no Database </p>
 <p></p>
 
 Sobre:
 - Objetivo: 
-  - Retornar os comandos que estão no DB e que podem ser manipulados por meio de ações CRUD.
+  - Retornar os comandos que estão no DB e que podem ser manipulados por meio de ações CRUD através do Endpoints.
   <p></p>
 - Foram Utilizas as seguintes tecnologias:
   - AutoMapper
   - DotNet CLI
   - Entity FrameWorkCore
   - MySql/MariaDB
-  - .NET Core 3.1
+  - .NET 5
   <p></p>
 - Foram aplicados conhecimentos como:
   - Repository Pattern 
