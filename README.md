@@ -1,12 +1,12 @@
 <h1 align="center">
     <a> MetaCommands </a>
 </h1>
-<p align="center"> API que retorna os comandos que estão no Database </p>
+<p align="center"> Relembre comandos </p>
 <p></p>
 
 Sobre:
 - Objetivo: 
-  - Retornar os comandos que estão no DB e que podem ser manipulados por meio de ações CRUD através do Endpoints.
+  - Através das actions CRUD, retornar os objetos que estão no db (comandos).
   <p></p>
 - Foram Utilizas as seguintes tecnologias:
   - AutoMapper
@@ -19,5 +19,4 @@ Sobre:
   - Repository Pattern 
   - DTO's
   - Dependency injection (DI)
-  - Arquitetura REST
-  - Fake repository (hard coded).
+  - Arquitetura REST.
