@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a> MetaCommands </a>
+    <a> meta-commands </a>
 </h1>
 <p align="center"> Relembre comandos </p>
 <p></p>
